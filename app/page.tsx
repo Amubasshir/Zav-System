@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import ZavCalculator from "@/components/ZavCalculator/ZavCalculator";
 import ZavHero from "@/components/ZavHero/ZavHero";
+import ZavHow from "@/components/ZavHow/ZavHow";
 import ZavIncluded from "@/components/ZavIncluded/ZavIncluded";
+import ZavPricing from "@/components/ZavPricing/ZavPricing";
 import ZavReviews from "@/components/ZavReviews/ZavReviews";
 import BookDemo from "@/components/sections/BookDemo";
 import Compare from "@/components/sections/Compare";
 import Faq from "@/components/sections/Faq";
-import HowItWorks from "@/components/sections/HowItWorks";
-import Pricing from "@/components/sections/Pricing";
 import { faqs } from "@/lib/faq";
 import { site } from "@/lib/site";
 
@@ -74,10 +74,10 @@ export default function HomePage() {
       <ZavHero />
       <Compare />
       <ZavIncluded />
-      <HowItWorks />
       <ZavReviews />
       <ZavCalculator />
-      <Pricing />
+      <ZavHow />
+      <ZavPricing />
       <Faq />
       <BookDemo />
     </>
