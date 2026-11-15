@@ -92,7 +92,7 @@ ZAV's own marketing site. It stays on Next.js (chosen for speed), not GHL.
 2. Compare (`#compare`): just a website vs. the ZAV System, five moments side by side
 3. What's included (`#included`): seven things the system does, in `components/ZavIncluded/` (design provided by Mubasshir, do not redesign)
 4. How it works (`#how`): demo call, 6-day build, live on day 7, in `components/ZavHow/` (design provided by Mubasshir, do not redesign). It sits right before pricing, after the calculator
-5. Google reviews (`#reviews`): the review request story, in `components/ZavReviews/` (design provided by Mubasshir, do not redesign). The old `#demo` section is gone; the hero's "Watch it book a job" button points to `#included`
+5. Google reviews (`#reviews`): the review request story, in `components/ZavReviews/` (design provided by Mubasshir, do not redesign). The hero's "Watch it book a job" button points to `#included`; its "Watch the demo" button points to the demo video section (`#demo`, `components/DemoVideoSection.tsx`, video and poster in `public/videos/`), which sits directly under the hero
    - Missed-call calculator (`#calculator`), between reviews and pricing, in `components/ZavCalculator/` (design provided by Mubasshir, do not redesign). Its output is an estimate from the visitor's own numbers and must stay labeled that way.
 6. Pricing (`#pricing`): one plan, $199/month, what is included and what is not, with a one-job break-even slider, in `components/ZavPricing/` (design provided by Mubasshir, do not redesign). The price must read $199 in the server HTML, not 6. Pricing: one plan, $199/month, what is included and what is not
 7. FAQ: ownership, cancelling, the 7 days, texting registration, "what's the catch"

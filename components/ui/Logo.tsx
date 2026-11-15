@@ -11,6 +11,8 @@ const VIEWBOX = {
   full: "414 217 1347 325",
   /** Z mark only, for tight spaces. */
   mark: "414 217 450 325",
+  /** ZAV wordmark only, for small badges like the hero pill. */
+  word: "936 285 828 175",
 };
 
 type Props = {
@@ -28,8 +30,8 @@ export default function Logo({ variant = "full", className = "" }: Props) {
       aria-label="ZAV"
       className={`w-auto ${className}`}
     >
-      <path d={MARK} />
-      {variant === "full" && <path d={WORD} />}
+      {variant !== "word" && <path d={MARK} />}
+      {variant !== "mark" && <path d={WORD} />}
     </svg>
   );
 }

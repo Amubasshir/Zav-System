@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Logo from "@/components/ui/Logo";
 import HeroDemoCard from "./HeroDemoCard";
 import HeroWires from "./HeroWires";
 import styles from "./ZavHero.module.css";
@@ -107,7 +108,10 @@ export default function ZavHero() {
 
       <div className={styles.center}>
         <span className={styles.pill}>
-          <b>ZAV</b> Built for HVAC companies
+          <b>
+            <Logo variant="word" className={styles.pillLogo} />
+          </b>{" "}
+          Built for HVAC companies
         </span>
 
         <h1>
@@ -130,6 +134,9 @@ export default function ZavHero() {
             <span className={styles.arr} aria-hidden="true">
               ↗
             </span>
+          </a>
+          <a className={`${styles.btn} ${styles.secondary}`} href="#demo">
+            Watch the demo
           </a>
           <a className={`${styles.btn} ${styles.secondary}`} href="#book">
             Book a 15-min demo

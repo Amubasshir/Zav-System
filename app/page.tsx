@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import DemoVideoSection from "@/components/DemoVideoSection";
 import ZavCalculator from "@/components/ZavCalculator/ZavCalculator";
 import ZavCompare from "@/components/ZavCompare/ZavCompare";
 import ZavHero from "@/components/ZavHero/ZavHero";
@@ -73,6 +74,7 @@ export default function HomePage() {
         }}
       />
       <ZavHero />
+      <DemoVideoSection />
       <Compare />
       <ZavIncluded />
       <ZavReviews />
