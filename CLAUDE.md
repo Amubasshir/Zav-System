@@ -89,8 +89,8 @@ ZAV's own marketing site. It stays on Next.js (chosen for speed), not GHL.
 
 **Sections the home page needs**
 1. Hero (already built, see section 8)
-2. Compare (`#compare`): just a website vs. the ZAV System, five moments side by side
-3. What's included (`#included`): seven things the system does, in `components/ZavIncluded/` (design provided by Mubasshir, do not redesign)
+2. What's included (`#included`): seven things the system does, in `components/ZavIncluded/` (design provided by Mubasshir, do not redesign)
+3. Compare (`#compare`): just a website vs. the ZAV System, five moments side by side
 4. How it works (`#how`): demo call, 6-day build, live on day 7, in `components/ZavHow/` (design provided by Mubasshir, do not redesign). It sits right before pricing, after the calculator
 5. Google reviews (`#reviews`): the review request story, in `components/ZavReviews/` (design provided by Mubasshir, do not redesign). The hero's "Watch it book a job" button points to `#included`; its "Watch the demo" button points to the demo video section (`#demo`, `components/DemoVideoSection.tsx`, video and poster in `public/videos/`), which sits directly under the hero
    - Missed-call calculator (`#calculator`), between reviews and pricing, in `components/ZavCalculator/` (design provided by Mubasshir, do not redesign). Its output is an estimate from the visitor's own numbers and must stay labeled that way.

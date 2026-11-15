@@ -75,8 +75,8 @@ export default function HomePage() {
       />
       <ZavHero />
       <DemoVideoSection />
-      <Compare />
       <ZavIncluded />
+      <Compare />
       <ZavReviews />
       <ZavCalculator />
       <ZavHow />

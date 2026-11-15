@@ -7,7 +7,8 @@ import { Container } from "@/components/ui/Section";
  * Demo video section for getzav.com.
  *
  * Files this expects in /public:
- *   /public/videos/zav-missed-call-demo-voiceover.mp4
+ *   /public/videos/zav-missed-call-demo-voiceover.av1.mp4  (AV1, preferred)
+ *   /public/videos/zav-missed-call-demo-voiceover.mp4      (H.264 fallback)
  *   /public/videos/zav-demo-poster.jpg
  *
  * Usage: <DemoVideoSection /> on the home page, directly under the hero.
@@ -65,13 +66,17 @@ export default function DemoVideoSection() {
           <video
             ref={videoRef}
             className="h-full w-full object-cover"
-            src="/videos/zav-missed-call-demo-voiceover.mp4"
             poster="/videos/zav-demo-poster.jpg"
             preload="none"
             playsInline
             controls={playing}
             onEnded={() => setPlaying(false)}
-          />
+          >
+            {/* AV1 first: same picture (VMAF 97.5 vs the original), 3.0 MB instead of 5.4 MB.
+                Browsers that can't play AV1 (e.g. older iPhones) skip it and get the H.264 original. */}
+            <source src="/videos/zav-missed-call-demo-voiceover.av1.mp4" type='video/mp4; codecs="av01.0.08M.08, mp4a.40.2"' />
+            <source src="/videos/zav-missed-call-demo-voiceover.mp4" type='video/mp4; codecs="avc1.640028, mp4a.40.2"' />
+          </video>
 
           {!playing && (
             <button
@@ -99,8 +104,6 @@ export default function DemoVideoSection() {
             </button>
           )}
         </div>
-
-        <p className="mt-4 text-[11px] leading-snug text-muted">Dramatization. Business names and figures are examples.</p>
       </Container>
     </section>
   );
