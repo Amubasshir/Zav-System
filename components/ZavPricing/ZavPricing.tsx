@@ -115,7 +115,7 @@ export default function ZavPricing() {
             <div className={s.top}>
               <div className={s.price}>
                 {/* counts up from $0 once, when the section first comes into view */}
-                <span>${price}</span>
+                <span className={s.amount}>${price}</span>
                 <span className={s.per}>/month</span>
               </div>
               <div className={s.terms}>

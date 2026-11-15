@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ZavCalculator from "@/components/ZavCalculator/ZavCalculator";
+import ZavCompare from "@/components/ZavCompare/ZavCompare";
 import ZavHero from "@/components/ZavHero/ZavHero";
 import ZavHow from "@/components/ZavHow/ZavHow";
 import ZavIncluded from "@/components/ZavIncluded/ZavIncluded";
@@ -77,6 +78,7 @@ export default function HomePage() {
       <ZavReviews />
       <ZavCalculator />
       <ZavHow />
+      <ZavCompare />
       <ZavPricing />
       <Faq />
       <BookDemo />

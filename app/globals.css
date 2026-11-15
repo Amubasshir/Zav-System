@@ -49,3 +49,40 @@
     outline-offset: 3px;
   }
 }
+
+/* FAQ open/close motion (components/sections/Faq.tsx).
+   The height slide needs ::details-content + interpolate-size (current
+   Chrome/Edge); other browsers open instantly and still get the fade. */
+:root {
+  interpolate-size: allow-keywords;
+}
+
+.faq-item::details-content {
+  block-size: 0;
+  overflow: clip;
+  transition:
+    block-size 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+    content-visibility 0.35s allow-discrete;
+}
+.faq-item[open]::details-content {
+  block-size: auto;
+}
+
+.faq-item[open] .faq-answer {
+  animation: faq-in 0.4s ease both;
+}
+@keyframes faq-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-item::details-content {
+    transition: none;
+  }
+  .faq-item[open] .faq-answer {
+    animation: none;
+  }
+}
