@@ -7,7 +7,7 @@ import ZavHow from "@/components/ZavHow/ZavHow";
 import ZavIncluded from "@/components/ZavIncluded/ZavIncluded";
 import ZavPricing from "@/components/ZavPricing/ZavPricing";
 import ZavReviews from "@/components/ZavReviews/ZavReviews";
-import BookDemo from "@/components/sections/BookDemo";
+import ZavBooking from "@/components/ZavBooking/ZavBooking";
 import Compare from "@/components/sections/Compare";
 import Faq from "@/components/sections/Faq";
 import { faqs } from "@/lib/faq";
@@ -83,7 +83,7 @@ export default function HomePage() {
       <ZavCompare />
       <ZavPricing />
       <Faq />
-      <BookDemo />
+      <ZavBooking />
     </>
   );
 }
