@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import s from "./ZavPricing.module.css";
+import { ArrowRightGlyph } from "@/components/ui/glyphs";
 
 const PRICE = 199; // per month
 
@@ -150,7 +151,7 @@ export default function ZavPricing() {
               </div>
               <p className={s.fine}>Simple arithmetic on your number, not a promise of results.</p>
               <a className={s.cta} href="#book">
-                Book a 15-min demo <span className={s.arr}>→</span>
+                Book a 15-min demo <span className={s.arr}><ArrowRightGlyph /></span>
               </a>
             </div>
           </div>

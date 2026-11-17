@@ -3,6 +3,7 @@ import Logo from "@/components/ui/Logo";
 import HeroDemoCard from "./HeroDemoCard";
 import HeroWires from "./HeroWires";
 import styles from "./ZavHero.module.css";
+import { ArrowUpRightGlyph } from "@/components/ui/glyphs";
 
 type Tile = {
   label: string;
@@ -132,7 +133,7 @@ export default function ZavHero() {
           <a className={`${styles.btn} ${styles.primary}`} href="#included">
             Watch it book a job{" "}
             <span className={styles.arr} aria-hidden="true">
-              ↗
+              <ArrowUpRightGlyph />
             </span>
           </a>
           <a className={`${styles.btn} ${styles.secondary}`} href="#demo">

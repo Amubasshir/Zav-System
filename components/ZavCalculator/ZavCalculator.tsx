@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import s from "./ZavCalculator.module.css";
+import { ArrowUpRightGlyph } from "@/components/ui/glyphs";
 
 const PRICE = 199; // ZAV per month
 
@@ -136,7 +137,7 @@ export default function ZavCalculator() {
               </p>
               <p className={s.fine}>An estimate from the numbers you entered, not a promise of results.</p>
               <a className={s.cta} href="#book">
-                See it on your own phone <span className={s.arr}>↗</span>
+                See it on your own phone <span className={s.arr}><ArrowUpRightGlyph /></span>
               </a>
             </div>
           </div>

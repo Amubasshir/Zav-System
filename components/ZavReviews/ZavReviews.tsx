@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import s from "./ZavReviews.module.css";
+import { ArrowUpRightGlyph, StarGlyph } from "@/components/ui/glyphs";
 
 /* Edit copy here. Keep it true: every customer gets the same request, and nothing is sent after a review or an opt-out. */
 const STEPS = [
@@ -76,7 +77,7 @@ export default function ZavReviews() {
               <div className={s.panelhead}>
                 <span>Review request</span>
                 <span className={`${s.rating} ${step >= 3 ? s.bumped : ""}`}>
-                  <span className={s.star}>★</span> 4.8 ·{" "}
+                  <span className={s.star}><StarGlyph /></span> 4.8 ·{" "}
                   <span className={s.flip}>
                     <span className={`${s.v} ${s.old}`}>38</span>
                     <span className={`${s.v} ${s.new}`}>39</span>
@@ -113,7 +114,7 @@ export default function ZavReviews() {
 
             <div className={`${s.stage} ${step >= 3 ? s.got : ""}`} aria-hidden="true">
               <span className={s.badge}>
-                <span className={s.bstar}>★</span> +1 Google review
+                <span className={s.bstar}><StarGlyph /></span> +1 Google review
               </span>
               <div className={s.phone}>
                 <div className={s.screen}>
@@ -145,7 +146,7 @@ export default function ZavReviews() {
                       <div>
                         <span className={s.stars}>
                           {[0, 1, 2, 3, 4].map((i) => (
-                            <span key={i} className={s.s} style={{ "--i": i } as CSSProperties}>★</span>
+                            <span key={i} className={s.s} style={{ "--i": i } as CSSProperties}><StarGlyph /></span>
                           ))}
                         </span>
                         Review posted on your Google page
@@ -171,7 +172,7 @@ export default function ZavReviews() {
 
           <div className={s.foot}>
             <a className={s.cta} href="#book">
-              Book a 15-min demo <span className={s.arr}>↗</span>
+              Book a 15-min demo <span className={s.arr}><ArrowUpRightGlyph /></span>
             </a>
             <span className={s.note}>Part of the ZAV System · $199/month</span>
           </div>

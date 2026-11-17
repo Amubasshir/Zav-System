@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { ArrowUpRightGlyph } from "@/components/ui/glyphs";
 
 type Props = {
   href: string;
@@ -52,7 +53,7 @@ export default function ButtonLink({
           aria-hidden="true"
           className="grid size-7 place-items-center rounded-full bg-accent text-sm text-white"
         >
-          ↗
+          <ArrowUpRightGlyph />
         </span>
       )}
     </>

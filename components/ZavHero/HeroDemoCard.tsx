@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import styles from "./ZavHero.module.css";
+import { StarGlyph } from "@/components/ui/glyphs";
 
 /** Time each message stays up. Matches the dot fill animation in the CSS module. */
 const STEP_MS = 2600;
@@ -12,7 +13,7 @@ type Message = {
   iconBg: string;
   icon: ReactNode;
   title: string;
-  body: string;
+  body: ReactNode;
   chip?: string;
 };
 
@@ -58,7 +59,14 @@ const MESSAGES: Message[] = [
       </svg>
     ),
     title: "Job done · review request sent",
-    body: "★★★★★ New Google review",
+    body: (
+      <>
+        {[0, 1, 2, 3, 4].map((i) => (
+          <StarGlyph key={i} />
+        ))}{" "}
+        New Google review
+      </>
+    ),
   },
 ];
 

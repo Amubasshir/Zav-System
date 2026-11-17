@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import s from "./ZavIncluded.module.css";
+import { ArrowRightGlyph, ArrowUpRightGlyph } from "@/components/ui/glyphs";
 
 type Tone = "sky" | "slate" | "green" | "amber";
 type Item = {
@@ -232,7 +233,7 @@ export default function ZavIncluded() {
                     <p>{it.text}</p>
                     {it.link && (
                       <a className={s.more} href={it.link.href}>
-                        {it.link.label} →
+                        {it.link.label} <ArrowRightGlyph />
                       </a>
                     )}
                   </div>
@@ -241,7 +242,7 @@ export default function ZavIncluded() {
             </ol>
             <div className={s.foot}>
               <a className={s.cta} href="#book">
-                See it on your own phone <span className={s.arr}>↗</span>
+                See it on your own phone <span className={s.arr}><ArrowUpRightGlyph /></span>
               </a>
               <span className={s.note}>$199/month · No contract</span>
             </div>
