@@ -9,7 +9,7 @@ import { Container } from "@/components/ui/Section";
  * Files this expects in /public:
  *   /public/videos/zav-missed-call-demo-voiceover.av1.mp4  (AV1, preferred)
  *   /public/videos/zav-missed-call-demo-voiceover.mp4      (H.264 fallback)
- *   /public/videos/zav-demo-poster.jpg
+ *   /public/videos/zav-demo-poster-800.avif, -1600.avif, -1280.jpg (fallback)
  *
  * Usage: <DemoVideoSection /> on the home page, directly under the hero.
  * The section has id="demo", so a hero button can link to "#demo".
@@ -66,7 +66,6 @@ export default function DemoVideoSection() {
           <video
             ref={videoRef}
             className="h-full w-full object-cover"
-            poster="/videos/zav-demo-poster.jpg"
             preload="none"
             playsInline
             controls={playing}
@@ -77,6 +76,27 @@ export default function DemoVideoSection() {
             <source src="/videos/zav-missed-call-demo-voiceover.av1.mp4" type='video/mp4; codecs="av01.0.08M.08, mp4a.40.2"' />
             <source src="/videos/zav-missed-call-demo-voiceover.mp4" type='video/mp4; codecs="avc1.640028, mp4a.40.2"' />
           </video>
+
+          {/* The poster is an <img>, not the video's poster attribute, so it can be
+              lazy-loaded and sized for the screen (13 KB on a phone instead of 199 KB). */}
+          {!playing && (
+            <picture>
+              <source
+                type="image/avif"
+                srcSet="/videos/zav-demo-poster-800.avif 800w, /videos/zav-demo-poster-1600.avif 1600w"
+                sizes="(min-width: 1152px) 1088px, calc(100vw - 40px)"
+              />
+              <img
+                src="/videos/zav-demo-poster-1280.jpg"
+                alt=""
+                width={1920}
+                height={1080}
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </picture>
+          )}
 
           {!playing && (
             <button

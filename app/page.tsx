@@ -75,15 +75,24 @@ export default function HomePage() {
       />
       <ZavHero />
       <DemoVideoSection />
-      <ZavIncluded />
-      <Compare />
-      <ZavReviews />
-      <ZavCalculator />
-      <ZavHow />
-      <ZavCompare />
-      <ZavPricing />
-      <Faq />
-      <ZavBooking />
+      {/* Everything below the first two sections is wrapped in .defer-render
+          (globals.css): the browser skips layout and paint for a section until
+          it is about to scroll into view. Keep new sections inside a wrapper. */}
+      {[
+        <ZavIncluded key="included" />,
+        <Compare key="compare" />,
+        <ZavReviews key="reviews" />,
+        <ZavCalculator key="calculator" />,
+        <ZavHow key="how" />,
+        <ZavCompare key="one-system" />,
+        <ZavPricing key="pricing" />,
+        <Faq key="faq" />,
+        <ZavBooking key="book" />,
+      ].map((section) => (
+        <div key={section.key} className="defer-render">
+          {section}
+        </div>
+      ))}
     </>
   );
 }

@@ -50,6 +50,24 @@
   }
 }
 
+/* Speed: sections below the fold (wrapped in app/page.tsx) are not laid out
+   or painted until they are near the screen. The size is only a placeholder
+   height until the section has rendered once; "auto" then remembers the real one. */
+.defer-render {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1700px;
+}
+@media (min-width: 64rem) {
+  .defer-render {
+    contain-intrinsic-size: auto 900px;
+  }
+}
+/* Anchor links need the real section heights to land in the right place, so
+   the small script in app/layout.tsx sets this the moment a # link is used. */
+html[data-no-defer] .defer-render {
+  content-visibility: visible;
+}
+
 /* FAQ open/close motion (components/sections/Faq.tsx).
    The height slide needs ::details-content + interpolate-size (current
    Chrome/Edge); other browsers open instantly and still get the fade. */

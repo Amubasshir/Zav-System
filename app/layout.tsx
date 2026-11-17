@@ -55,13 +55,22 @@ export const viewport: Viewport = {
   themeColor: "#F3F4F1",
 };
 
+/* The home page skips rendering sections that are off screen (.defer-render in
+   globals.css). Their heights are placeholders until then, so a jump to
+   "#book" would land in the wrong place. This turns the skipping off as soon
+   as a # link is clicked, or when the page is opened with a # in the address. */
+const NO_DEFER_SCRIPT = `(function(){var d=document.documentElement;function off(){d.setAttribute("data-no-defer","")}if(location.hash)off();addEventListener("hashchange",off);addEventListener("click",function(e){var t=e.target;if(t&&t.closest&&t.closest('a[href*="#"]'))off()},true)})()`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
       className={`${inter.variable} ${grotesk.variable} ${mono.variable}`}
+      // the script above adds data-no-defer before React loads
+      suppressHydrationWarning
     >
       <body className="flex min-h-dvh flex-col font-sans">
+        <script dangerouslySetInnerHTML={{ __html: NO_DEFER_SCRIPT }} />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

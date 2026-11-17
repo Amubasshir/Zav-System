@@ -95,6 +95,9 @@ export default function ZavIncluded() {
   const rowRefs = useRef<(HTMLLIElement | null)[]>([]);
   const railRef = useRef<HTMLDivElement>(null);
   const hovering = useRef(false);
+  /* false until the section first nears the screen: measuring before that
+     would force the browser to lay out a section it is skipping (see .defer-render) */
+  const [seen, setSeen] = useState(false);
 
   /* the row closest to the middle of the screen is the active one */
   useEffect(() => {
@@ -130,6 +133,7 @@ export default function ZavIncluded() {
     const visibility = new IntersectionObserver(([entry]) => {
       stop();
       if (!entry.isIntersecting) return;
+      setSeen(true);
       window.addEventListener("scroll", onScroll, { passive: true });
       window.addEventListener("resize", onScroll);
       onScroll();
@@ -143,6 +147,7 @@ export default function ZavIncluded() {
 
   /* the glowing line runs down to the active row's icon */
   useEffect(() => {
+    if (!seen) return;
     const measure = () => {
       const row = rowRefs.current[active];
       const rail = railRef.current;
@@ -152,7 +157,7 @@ export default function ZavIncluded() {
     };
     const raf = requestAnimationFrame(measure);
     return () => cancelAnimationFrame(raf);
-  }, [active]);
+  }, [active, seen]);
 
   return (
     <div className={s.root}>
